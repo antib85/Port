@@ -82,7 +82,7 @@ bool GameServerCore::CoreInit()
 			GameServerDebug::LogInfo(Info);
 		}
 
-		ServerEndPoint = IPEndPoint(IPAddress::Parse("127.0.0.1"), ServerPort);
+		ServerEndPoint = IPEndPoint(IPAddress::Parse("0.0.0.0"), ServerPort);
 	}
 
 	{
@@ -202,7 +202,7 @@ bool GameServerCore::CoreRun()
 		return false;
 	}
 
-	Listener_.Initialize(IPEndPoint(IPAddress::Parse("127.0.0.1"), ServerPort), AcceptCallBack_);
+	Listener_.Initialize(IPEndPoint(IPAddress::Parse("0.0.0.0"), ServerPort), AcceptCallBack_);
 
 	Listener_.BindQueue(NetQueue::GetQueue());
 	Listener_.StartAccept(10);

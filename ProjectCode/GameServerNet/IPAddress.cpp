@@ -70,7 +70,7 @@ IPAddress IPAddress::Parse(const std::string& ipString)
 	sin.sin_family = AF_INET;
 	if (ipString == "localhost")
 	{
-		inet_pton(AF_INET, "127.0.0.1", &sin.sin_addr.s_addr);
+		inet_pton(AF_INET, "0.0.0.0", &sin.sin_addr.s_addr);
 	}
 	else if (ipString == "0.0.0.0")
 	{

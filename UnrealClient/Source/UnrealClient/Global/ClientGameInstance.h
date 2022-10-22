@@ -78,6 +78,7 @@ private:
 	FSocket* UDPSocket_;
 
 	FIPv4Address ConnectAddress_;
+	FIPv4Address UDPAddress_;
 	int Port_;
 	FIPv4Endpoint EndPoint_;
 

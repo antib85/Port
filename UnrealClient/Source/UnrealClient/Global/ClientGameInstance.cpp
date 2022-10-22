@@ -226,13 +226,19 @@ bool UClientGameInstance::ServerUDPConnect(const FString& _PORTString, uint64 _S
 		return true;
 	}
 
+	if (nullptr != UDPSocket_)
+	{
+		return true;
+	}
+
 	ServerSendUDPPort_ = _ServerSendUDP;
 
 	ServerSendUDPEndPoint_ = FIPv4Endpoint(ConnectAddress_, ServerSendUDPPort_);
 
+	FIPv4Address::Parse(TEXT("0.0.0.0"), UDPAddress_);
 
 	ClientRecvUDPPort_ = static_cast<uint16>(FCString::Atoi(*_PORTString));
-	ClientRecvUDPEndPoint_ = FIPv4Endpoint(ConnectAddress_, ClientRecvUDPPort_);
+	ClientRecvUDPEndPoint_ = FIPv4Endpoint(UDPAddress_, ClientRecvUDPPort_);
 
 	UDPSocket_ = SocketSubSystem_->CreateSocket(NAME_DGram, TEXT("Test"));
 
