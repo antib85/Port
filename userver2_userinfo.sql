@@ -18,30 +18,29 @@ USE `userver2`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `post`
+-- Table structure for table `userinfo`
 --
 
-DROP TABLE IF EXISTS `post`;
+DROP TABLE IF EXISTS `userinfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `post` (
-  `idx` int NOT NULL AUTO_INCREMENT,
-  `ToNickName` varchar(45) NOT NULL,
-  `Letters` varchar(100) DEFAULT NULL,
-  `FromNickName` varchar(45) NOT NULL,
-  `PostTime` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idx`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `userinfo` (
+  `Idx` int NOT NULL AUTO_INCREMENT,
+  `ID` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `PW` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`Idx`),
+  UNIQUE KEY `ID_UNIQUE` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `post`
+-- Dumping data for table `userinfo`
 --
 
-LOCK TABLES `post` WRITE;
-/*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,'asd','안녕','fdfe','2022-10-23 00:58:52');
-/*!40000 ALTER TABLE `post` ENABLE KEYS */;
+LOCK TABLES `userinfo` WRITE;
+/*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
+INSERT INTO `userinfo` VALUES (1,'Test','Test');
+/*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
